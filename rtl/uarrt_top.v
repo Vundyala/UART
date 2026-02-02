@@ -14,11 +14,11 @@ module uart_top(
     wire baud_tick; 
     wire tick_16x;  
     reg [7:0] received_byte;    
-    baud_gen_both bg ( 
+    baud_gen bg ( 
         .clk(clk), 
         .reset(reset), 
         .baud_tick(baud_tick), 
-        .tick_16x(tick_16x) 
+        .tick_16(tick_16) 
     ); 
    uart_tx tx_inst ( 
         .clk(clk), 
