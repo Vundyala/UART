@@ -7,10 +7,8 @@ module uart_rx_16x(
     output reg  rx_done, 
     output reg parity_rx 
 ); 
- 
     parameter IDLE=3'b000, START=3'b001, DATA=3'b010, 
-              PARITY=3'b011, STOP=3'b100; 
- 
+              PARITY=3'b011, STOP=3'b100;  
     reg [2:0] state; 
     reg [3:0] sample_cnt; 
     reg [2:0] bit_index; 
@@ -88,4 +86,4 @@ module uart_rx_16x(
             endcase 
         end 
     end 
-endmodule
+endmodule 
