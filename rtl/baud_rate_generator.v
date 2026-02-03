@@ -34,4 +34,5 @@ module baud_gen #(
                 sample_cnt <= sample_cnt + 1; 
             end 
         end 
-    end 
+    end
+endmodule
