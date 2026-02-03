@@ -8,10 +8,8 @@ module uart_tx(
     output reg  tx_busy, 
     output reg  parity_tx 
 ); 
- 
     reg [3:0] bit_index; 
     reg [11:0] shift_reg; 
- 
     always @(posedge clk or posedge reset) begin 
         if (reset) begin 
             tx <= 1'b1; 
@@ -38,4 +36,4 @@ module uart_tx(
             end 
         end 
     end 
-endmodule
+endmodule 
