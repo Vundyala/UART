@@ -2,7 +2,7 @@
 UART Serial data transmission
 
 PROJECT OVERVIEW
-The project implements UART(universal transmitter  and receiver) .it enables serail communication.It includes baud generator ,transmitter ,receiver and topmodule to integrate these 3 modules.3 test cses are used to verify correct data transfer such as parity,2byte transmission and reset application in between.
+The project implements UART(universal transmitter and receiver) .It enables serial communication.It includes baud generator ,transmitter ,receiver and topmodule to integrate these 3 modules.3 test cses are used to verify correct data transfer such as parity,2byte transmission and reset application in between.
 
 FEATURES
 8 bit data transmission
