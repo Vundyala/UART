@@ -1,3 +1,5 @@
+// Reset control for UART 
+
 `timescale 1ns / 1ps 
 module tb_uart_top; 
  
@@ -31,14 +33,16 @@ module tb_uart_top;
         tx_data = 0; 
         #100; 
         reset = 0; 
- 
-        #50; 
+        #50;
+      
         tx_data = 8'b11110000; 
         tx_start = 1; 
         wait(tx_busy); 
         tx_start=0; 
-        wait(!tx_busy);
+        wait(!tx_busy);                              
+      
       //Reset Application
+      
         reset=1; 
         #2000; 
         reset=0; 
