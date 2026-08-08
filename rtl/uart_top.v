@@ -13,13 +13,15 @@ module uart_top(
     wire parity_rx; 
     wire baud_tick; 
     wire tick_16x;  
-    reg [7:0] received_byte;    
+    reg [7:0] received_byte;
+    
     baud_gen bg ( 
         .clk(clk), 
         .reset(reset), 
         .baud_tick(baud_tick), 
         .tick_16(tick_16) 
     ); 
+    
    uart_tx tx_inst ( 
         .clk(clk), 
         .reset(reset), 
@@ -30,6 +32,7 @@ module uart_top(
         .tx_busy(tx_busy), 
         .parity_tx(parity_tx) 
     ); 
+    
     uart_rx_16x rx_inst ( 
         .clk(clk), 
         .reset(reset), 
