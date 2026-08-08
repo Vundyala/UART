@@ -29,15 +29,16 @@ module tb_uart_top;
         tx_start = 0; 
         #100 reset = 0; 
         #20; 
+     // 1st Data Byte
         tx_data = 8'b11110000; 
         tx_start = 1; 
-        wait(dut.tx_inst.tx_busy == 1); 
+        wait(tx_busy); 
         tx_start=0; 
         #20 
-        reset=0;       
+      // 2nd Data Byte        
         tx_data = 8'b11011101; 
         tx_start = 1;        
-        #40000000; 
+        #4000; 
         $stop; 
     end 
 endmodule
