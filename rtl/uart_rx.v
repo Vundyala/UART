@@ -7,8 +7,11 @@ module uart_rx_16x(
     output reg  rx_done, 
     output reg parity_rx 
 ); 
-    parameter IDLE=3'b000, START=3'b001, DATA=3'b010, 
-              PARITY=3'b011, STOP=3'b100;  
+    local parameter IDLE=3'b000,
+    local parameter START=3'b001,
+    local parameter DATA=3'b010, 
+    local parameter PARITY=3'b011,
+    local parameter STOP=3'b100;  
     reg [2:0] state; 
     reg [3:0] sample_cnt; 
     reg [2:0] bit_index; 
@@ -27,10 +30,9 @@ module uart_rx_16x(
         end  
         else if (tick_16x) begin 
             rx_done <= 0; 
- 
             case(state) 
- 
-            IDLE: begin 
+            IDLE: 
+                begin 
                 if (rx == 0) begin 
                     state <= START; 
                     sample_cnt <= 0; 
