@@ -17,7 +17,7 @@ module uart_tx(
               tx <= 1'b1; 
               tx_busy <= 0; 
               bit_index <= 0; 
-              shift_reg <= 11'b111111111111;                                   //Frame shift register
+              shift_reg <= 11'b11111111111;                                   //Frame shift register
               parity_tx <= 0; 
               end 
            else
@@ -25,7 +25,7 @@ module uart_tx(
                if (tx_start && !tx_busy) 
                    begin 
                    parity_tx <=~(^tx_data);                                   //odd parity 
-                   shift_reg <= {2'b1, ~(^tx_data), tx_data, 1'b0}; 
+                   shift_reg <= {1'b1, ~(^tx_data), tx_data, 1'b0}; 
                    tx_busy <= 1; 
                    bit_index <= 0; 
                    tx<=1'b0; 
@@ -35,7 +35,7 @@ module uart_tx(
                    if (baud_tick && tx_busy) 
                        begin 
                        tx <= shift_reg[0]; 
-                       shift_reg <= {2'b11, shift_reg[10:1]}; 
+                       shift_reg <= {1'b1, shift_reg[10:1]};              //Load UART frame into shift register
                        bit_index <= bit_index + 1;
                        if (bit_index == 11)
                            tx_busy <= 0; 
