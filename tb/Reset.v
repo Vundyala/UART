@@ -21,31 +21,30 @@ module tb_uart_top;
         .rx_done(rx_done) 
     ); 
  
-    always #10 clk = ~clk;   
+    forever #10 clk = ~clk;   
     assign rx = tx;           
- 
-    initial begin 
+    initial 
+     begin 
         clk = 0; 
         reset = 1; 
         tx_start = 0; 
         tx_data = 0; 
- 
-        // Initial reset 
         #100; 
         reset = 0; 
  
         #50; 
         tx_data = 8'b11110000; 
         tx_start = 1; 
-        wait(dut.tx_inst.tx_busy == 1); 
+        wait(tx_busy); 
         tx_start=0; 
-        #3000; 
+        wait(!tx_busy);
+      //Reset Application
         reset=1; 
         #2000; 
         reset=0; 
         tx_data = 8'b11011101; 
         tx_start = 1;        
-        #40000000; 
+        #400000; 
         $stop; 
     end 
  
