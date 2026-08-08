@@ -8,6 +8,7 @@ module uart_rx_16x(
     output reg parity_rx 
 ); 
     //FSM state definition
+    
     local parameter IDLE=3'b000,
     local parameter START=3'b001,
     local parameter DATA=3'b010, 
@@ -83,7 +84,7 @@ module uart_rx_16x(
                             state <= STOP;                        // Recieved parity matches calculated parity,move to state STOP
                         else 
                            state <= IDLE; 
-                           sample_cnt <= 0;                       //Parity mismatch,move to IDLE state
+                           sample_cnt <= 0;                       //Parity mismatch , move to IDLE state
                     end 
                     else 
                        sample_cnt <= sample_cnt + 1; 
