@@ -85,7 +85,9 @@ Reset is asserted between two transmissions to verify that the transmitter and r
 The complete **design specifications, transmitter and receiver FSM diagrams, and detailed test-case explanations** are provided in the project report.
 
 [View the Complete Project Report](Report)
-  AUTHOR
+
+## Authors
+  
   Bhavitha
   Joshnavi
   Tejasri 
