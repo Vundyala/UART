@@ -91,12 +91,8 @@ Reset is asserted between two transmissions to verify that the transmitter and r
 ## Authors
   
   Bhavitha
-  
   Joshnavi
-  
   Tejasri 
-  
   Electronics and communication engineering department
-  
   MNNIT Allahabad
   
