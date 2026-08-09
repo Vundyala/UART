@@ -83,7 +83,7 @@ The transmitter generates an odd parity bit for each data byte. The receiver cal
 ### 4. Reset During Communication
 Reset is asserted between two transmissions to verify that the transmitter and receiver return to their initial states. After reset is released, a new transmission is started and the UART resumes normal operation.
 
-## Detailed Design
+# Detailed Design
 The complete **design specifications, transmitter and receiver FSM diagrams, and detailed test-case explanations** are provided in the project report.
 
 [View the Complete Project Report](Report)
