@@ -71,17 +71,18 @@ The UART uses separate Finite State Machines (FSMs) for the transmitter and rece
 ## Simulation Results
 Different test cases were performed to verify data transmission, parity checking, continuous byte transmission, and reset behavior.
 
-### 1. Single-Byte Transmission
-An 8-bit data value is provided to the transmitter through tx_data. The transmitter generates the UART frame and sends it serially through tx. The same signal is connected to the receiver, which reconstructs the data and provides it through rx_data.
+  ### 1. Single-Byte Transmission
+   An 8-bit data value is provided to the transmitter through tx_data. The transmitter generates the UART frame and sends it serially through tx. The same signal    is connected to the receiver, which reconstructs the data and provides it through rx_data.
 
-### 2. Continuous 2-Byte Transmission
-Two data bytes are transmitted consecutively to verify that the transmitter correctly completes one frame before starting the next transmission. The receiver successfully reconstructs the transmitted bytes.
+  ### 2. Continuous 2-Byte Transmission
+   Two data bytes are transmitted consecutively to verify that the transmitter correctly completes one frame before starting the next transmission. The receiver     successfully reconstructs the transmitted bytes.
 
-### 3. Parity Verification
-The transmitter generates an odd parity bit for each data byte. The receiver calculates the expected parity and compares it with the received parity bit to verify the integrity of the data.
+  ### 3. Parity Verification
+   The transmitter generates an odd parity bit for each data byte. The receiver calculates the expected parity and compares it with the received parity bit to       verify the integrity of the data.
 
-### 4. Reset During Communication
-Reset is asserted between two transmissions to verify that the transmitter and receiver return to their initial states. After reset is released, a new transmission is started and the UART resumes normal operation.
+  ### 4. Reset During Communication
+   Reset is asserted between two transmissions to verify that the transmitter and receiver return to their initial states. After reset is released, a new        
+   transmitted is started and the UART resumes normal operation.
 
 ## Detailed Design
    The complete **design specifications, transmitter and receiver FSM diagrams, and detailed test-case explanations** are provided in the project report.
