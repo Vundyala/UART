@@ -53,19 +53,19 @@ Receiver output verification – checks rx_data and rx_done after successful fra
 The UART uses separate Finite State Machines (FSMs) for the transmitter and receiver to control stages of UART communication.
 
 - ### Transmitter FSM
- IDLE: Waits for tx_start. When a new transmission is requested, the UART frame is loaded into the shift register and the transmitter moves to BUSY.
- BUSY: Transmits the frame one bit at a time on the tx line using baud_tick. After all bits are transmitted, it returns to IDLE and clears tx_busy.
+     IDLE: Waits for tx_start. When a new transmission is requested, the UART frame is loaded into the shift register and the transmitter moves to BUSY.
+     BUSY: Transmits the frame one bit at a time on the tx line using baud_tick. After all bits are transmitted, it returns to IDLE and clears tx_busy.
 
 - ### Receiver FSM
-IDLE: Monitors the rx line and waits for the start bit (rx = 0).
+     IDLE: Monitors the rx line and waits for the start bit (rx = 0).
 
-START: Waits for the appropriate sampling point to confirm the start bit and then moves to DATA.
+     START: Waits for the appropriate sampling point to confirm the start bit and then moves to DATA.
 
-DATA: Samples and stores the 8 data bits using tick_16x. After all 8 bits are received, it moves to PARITY.
+     DATA: Samples and stores the 8 data bits using tick_16x. After all 8 bits are received, it moves to PARITY.
 
-PARITY: Samples the parity bit and compares it with the calculated odd parity. If the parity matches, it moves to STOP; otherwise, it returns to IDLE.
+     PARITY: Samples the parity bit and compares it with the calculated odd parity. If the parity matches, it moves to STOP; otherwise, it returns to IDLE.
 
-STOP: Checks the stop bit. If it is valid (rx = 1), the received data is made available and rx_done is asserted before returning to IDLE.
+     STOP: Checks the stop bit. If it is valid (rx = 1), the received data is made available and rx_done is asserted before returning to IDLE.
 
 ## Simulation Results
 Different test cases were performed to verify data transmission, parity checking, continuous byte transmission, and reset behavior.
