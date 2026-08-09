@@ -1,3 +1,8 @@
+//--------------DESCRIPTION-----------------
+// Loads the data and parity into the shift register.
+// Sends one bit on every baud_tick.
+// stops when the complete frame is transmitted.
+// -----------------------------------
 module uart_tx( 
     input  wire clk, 
     input  wire reset, 
