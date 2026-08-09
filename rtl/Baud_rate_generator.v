@@ -1,3 +1,8 @@
+//--------------DESCRIPTION-----------------
+// TX counter gives baud_tick for transmitting each bit.
+// RX counter gives tick_16x for receiver sampling.
+//-------------------------------------------
+
 `timescale 1ns / 1ps 
 module baud_gen #( 
     parameter CLK_FREQ  = 5,00,00,000,    
