@@ -1,6 +1,7 @@
 # UART Communication System Using Verilog HDL
 ## Overview
-This project implements a UART (Universal Asynchronous Receiver/Transmitter) communication system using Verilog HDL. The design includes a baud-rate generator, UART transmitter, and a 16× oversampling receiver that detects the start bit, samples the incoming data bits, checks the parity bit, and validates the stop bit. The transmitter converts 8-bit parallel data into a serial UART frame with odd parity and one stop bit. The complete system is integrated and verified through simulation using a TX-to-RX loopback configuration.
+   This project implements a UART (Universal Asynchronous Receiver/Transmitter) communication system using Verilog HDL. The design includes a baud-rate              generator, UART transmitter, and a 16× oversampling receiver that detects the start bit, samples the incoming data bits, checks the parity bit, and validates     the stop bit. 
+   The transmitter converts 8-bit parallel data into a serial UART frame with odd parity and one stop bit. The complete system is integrated and verified through    simulation using a TX-to-RX loopback configuration.
 
 ## Features
 9600 baud rate communication
