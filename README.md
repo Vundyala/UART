@@ -57,24 +57,28 @@ The UART uses separate Finite State Machines (FSMs) for the transmitter and rece
 
 ### Receiver FSM
 IDLE: Monitors the rx line and waits for the start bit (rx = 0).
+
 START: Waits for the appropriate sampling point to confirm the start bit and then moves to DATA.
+
 DATA: Samples and stores the 8 data bits using tick_16x. After all 8 bits are received, it moves to PARITY.
+
 PARITY: Samples the parity bit and compares it with the calculated odd parity. If the parity matches, it moves to STOP; otherwise, it returns to IDLE.
+
 STOP: Checks the stop bit. If it is valid (rx = 1), the received data is made available and rx_done is asserted before returning to IDLE.
 
 ## Simulation Results
 Different test cases were performed to verify data transmission, parity checking, continuous byte transmission, and reset behavior.
 
-1. Single-Byte Transmission
+### 1. Single-Byte Transmission
 An 8-bit data value is provided to the transmitter through tx_data. The transmitter generates the UART frame and sends it serially through tx. The same signal is connected to the receiver, which reconstructs the data and provides it through rx_data.
 
-2. Continuous 2-Byte Transmission
+### 2. Continuous 2-Byte Transmission
 Two data bytes are transmitted consecutively to verify that the transmitter correctly completes one frame before starting the next transmission. The receiver successfully reconstructs the transmitted bytes.
 
-3. Parity Verification
+### 3. Parity Verification
 The transmitter generates an odd parity bit for each data byte. The receiver calculates the expected parity and compares it with the received parity bit to verify the integrity of the data.
 
-4. Reset During Communication
+### 4. Reset During Communication
 Reset is asserted between two transmissions to verify that the transmitter and receiver return to their initial states. After reset is released, a new transmission is started and the UART resumes normal operation.
 
 ## Detailed Design
