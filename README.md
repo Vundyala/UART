@@ -16,7 +16,9 @@
    The UART system consists of three main blocks:
    
    Baud Rate Generator: Generates the timing signals for TX and RX.
+   
    Transmitter: Converts 8-bit parallel data into serial data and sends it through tx.
+   
    Receiver: Receives the serial data through rx, reconstructs the 8-bit data, and checks the parity.
 
 ## Module Description
