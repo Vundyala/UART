@@ -1,3 +1,9 @@
+//--------------DESCRIPTION-----------------
+// Detects the start bit and samples 8 data bits using tick_16x.
+// Checks the received parity bit with the calculated odd parity.
+// Checks the stop bit and outputs the received data with rx_done.
+// -----------------------------------
+
 module uart_rx_16x( 
     input  wire clk, 
     input  wire reset, 
