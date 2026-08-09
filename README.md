@@ -54,6 +54,7 @@ The UART uses separate Finite State Machines (FSMs) for the transmitter and rece
 
 - ### Transmitter FSM
      IDLE: Waits for tx_start. When a new transmission is requested, the UART frame is loaded into the shift register and the transmitter moves to BUSY.
+  
      BUSY: Transmits the frame one bit at a time on the tx line using baud_tick. After all bits are transmitted, it returns to IDLE and clears tx_busy.
 
 - ### Receiver FSM
@@ -90,8 +91,12 @@ The complete **design specifications, transmitter and receiver FSM diagrams, and
 ## Authors
   
   Bhavitha
+  
   Joshnavi
+  
   Tejasri 
+  
   Electronics and communication engineering department
+  
   MNNIT Allahabad
   
