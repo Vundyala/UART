@@ -1,9 +1,9 @@
 # UART Communication System Using Verilog HDL
-## Overview
+## ◆Overview
    This project implements a UART (Universal Asynchronous Receiver/Transmitter) communication system using Verilog HDL. The design includes a baud-rate              generator, UART transmitter, and a 16× oversampling receiver that detects the start bit, samples the incoming data bits, checks the parity bit, and validates     the stop bit. 
    The transmitter converts 8-bit parallel data into a serial UART frame with odd parity and one stop bit. The complete system is integrated and verified through    simulation using a TX-to-RX loopback configuration.
 
-## Features
+## ◆Features
   - 9600 baud rate communication
   - 8-bit data transmission
   - Odd parity for error detection
@@ -12,7 +12,7 @@
   - FSM-based UART transmitter and receiver
   - Verification through continuous 2-byte transmission, parity checking, and reset testing.
 
-## Architecture
+## ◆Architecture
    The UART system consists of three main blocks:
    
    Baud Rate Generator: Generates the timing signals for TX and RX.
@@ -21,7 +21,7 @@
    
    Receiver: Receives the serial data through rx, reconstructs the 8-bit data, and checks the parity.
 
-## Module Description
+## ◆Module Description
 ### 1.`baud_gen`
 Description of Baud Rate Generator
 The Baud Rate Generator generates baud_tick for transmission and tick_16x for receiver sampling, indicating when the transmitter should send each bit and when the receiver should sample the incoming data. 
@@ -52,7 +52,7 @@ Parity verification – checks the odd parity generation and reception.
 Reset during communication – verifies the behavior of the UART when reset is asserted between transmissions.
 Receiver output verification – checks rx_data and rx_done after successful frame reception.
 
-## Finite State Machine
+## ◆Finite State Machine
 The UART uses separate Finite State Machines (FSMs) for the transmitter and receiver to control stages of UART communication.
 
 - ### Transmitter FSM
@@ -71,7 +71,7 @@ The UART uses separate Finite State Machines (FSMs) for the transmitter and rece
 
      STOP: Checks the stop bit. If it is valid (rx = 1), the received data is made available and rx_done is asserted before returning to IDLE.
 
-## Simulation Results
+## ◆Simulation Results
 Different test cases were performed to verify data transmission, parity checking, continuous byte transmission, and reset behavior.
 
   ### 1. Single-Byte Transmission
@@ -87,7 +87,7 @@ Different test cases were performed to verify data transmission, parity checking
    Reset is asserted between two transmissions to verify that the transmitter and receiver return to their initial states. After reset is released, a new        
    transmitted is started and the UART resumes normal operation.
 
-## Detailed Design
+## ◆Detailed Design
    The complete **design specifications, transmitter and receiver FSM diagrams, and detailed test-case explanations** are provided in the project report.
 
   [View the Complete Project Report](Report)
