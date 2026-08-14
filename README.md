@@ -90,7 +90,7 @@ Different test cases were performed to verify data transmission, parity checking
 ## ◆Detailed Design
    The complete **design specifications, transmitter and receiver FSM diagrams, and detailed test-case explanations** are provided in the project report.
 
-  [View the Complete Project Report](report)
+  [View the Complete Project Report](Report.pdf)
 
 ## Authors
   
