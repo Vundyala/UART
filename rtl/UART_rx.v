@@ -67,14 +67,17 @@ module uart_rx_16x(
  
                 DATA: 
                     begin 
-                    if (sample_cnt == 15) 
+                        if (sample_cnt == 7) 
                         begin 
                         data_reg[bit_index] <= rx;                 //store sampled bit
                         sample_cnt <= 0; 
-                            if (bit_index == 7)                    //All bits are recieved , move to parity state
-                            state <= PARITY; 
-                        else 
-                           bit_index <= bit_index + 1; 
+                            if (sample_cnt == 15)
+                                begin
+                                if (bit_index == 7)                    //All bits are recieved , move to parity state
+                                   state <= PARITY; 
+                               else 
+                                  bit_index <= bit_index + 1; 
+                                end
                         end
                     else 
                        sample_cnt <= sample_cnt + 1; 
