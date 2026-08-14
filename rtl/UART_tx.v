@@ -33,7 +33,6 @@ module uart_tx(
                    shift_reg <= {1'b1, ~(^tx_data), tx_data, 1'b0}; 
                    tx_busy <= 1; 
                    bit_index <= 0; 
-                   tx<=1'b0; 
                    end 
                else 
                    begin
@@ -42,7 +41,7 @@ module uart_tx(
                        tx <= shift_reg[0]; 
                        shift_reg <= {1'b1, shift_reg[10:1]};              //Load UART frame into shift register
                        bit_index <= bit_index + 1;                        //count of bits transmitted
-                       if (bit_index == 11)
+                       if (bit_index == 10)
                            tx_busy <= 0; 
                        end 
                   end
